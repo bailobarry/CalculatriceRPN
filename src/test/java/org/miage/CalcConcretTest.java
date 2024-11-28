@@ -36,15 +36,15 @@ public class CalcTest {
         calc.enterValue(0);
         calc.enterValue(8.26);
         calc.subtract();
-        assertEquals("Le resultat de la soustraction est -8.26", 8.26, calc.displayValueOnTop(), 0.01);
+        assertEquals("Le resultat de la soustraction est -8.26", -8.26, calc.displayValueOnTop(), 0.01);
         calc.enterValue(5.25);
         calc.enterValue(1);
         calc.subtract();
-        assertEquals("Le resultat de la soustraction est -4.25", -4.25, calc.displayValueOnTop(), 0.01);
+        assertEquals("Le resultat de la soustraction est 4.25", 4.25, calc.displayValueOnTop(), 0.01);
         calc.enterValue(10.90);
         calc.enterValue(6.50);
         calc.subtract();
-        assertEquals("Le resultat de la soustract est -4.40", -4.40, calc.displayValueOnTop(), 0.01);
+        assertEquals("Le resultat de la soustract est 4.40", 4.40, calc.displayValueOnTop(), 0.01);
     }
 
     @Test
@@ -67,19 +67,19 @@ public class CalcTest {
     @Test
     public void testdivide() {
         assertThrows("Le nombre d'opérandes est insuffisant, division impossible", NotEnoughOperandsOnStackException.class, () -> calc.divide());
-        calc.enterValue(0.00);
         calc.enterValue(8.45);
-        assertThrows("La division par 0 est impossible", DivideByZeroException.class, () -> calc.divide());
-        calc.enterValue(5.25);
         calc.enterValue(0.00);
+        assertThrows("La division par 0 est impossible", DivideByZeroException.class, () -> calc.divide());
+        calc.enterValue(0.00);
+        calc.enterValue(5.25);
         calc.divide();
         assertEquals("Le resultat de la division est 0.00", 0.00, calc.displayValueOnTop(), 0.01);
-        calc.enterValue(1);
         calc.enterValue(10.80);
+        calc.enterValue(1);
         calc.divide();
         assertEquals("Le resultat de la division est 10.80", 10.80, calc.displayValueOnTop(), 0.01);
-        calc.enterValue(4.23);
         calc.enterValue(40.40);
+        calc.enterValue(4.23);
         calc.divide();
         assertEquals("Le resultat de la division est 9.55", 9.55, calc.displayValueOnTop(), 0.01);
     }

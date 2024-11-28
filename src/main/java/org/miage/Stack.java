@@ -1,44 +1,29 @@
 package org.miage;
 
-import java.util.ArrayList;
 import java.util.EmptyStackException;
-import java.util.List;
 
-public class Stack implements InterfaceStack {
-    private List<Double> pile = new ArrayList<Double>();
+public interface InterfaceStack {
+    /**
+     * Tests if this stack is empty
+     */
+    public boolean isEmpty();
+    /**
+     * Returns the number of items in this stack.
+     */
+    public int getSize(); /**
+     */
 
-    @Override
-    public boolean isEmpty() {
-        return pile.isEmpty();
-    }
 
-    @Override
-    public int getSize(){
-        return pile.size();
-    }
-
-    @Override
-    public void push(double item){
-        pile.add(item);
-    }
-
-    @Override
-    public double peek() throws EmptyStackException{
-        if(pile.isEmpty()){
-            throw new EmptyStackException();
-        }else{
-            int taille = pile.size();
-            return pile.get(taille-1);
-        }
-    }
-
-    @Override
-    public double pop() throws EmptyStackException{
-        if(pile.isEmpty()){
-            throw new EmptyStackException();
-        }else{
-            int taille = pile.size();
-            return pile.remove(taille-1);
-        }
-    }
+    public void push(double item);
+    /**
+     * Looks at the object at the top of this stack without removing it from the
+     stack.
+     */
+    public double peek() throws EmptyStackException;
+    /**
+     * Removes the object at the top of this stack and returns
+     * that object as the value of this function.
+     * @throws EmptyStackException if this stack is empty.
+     */
+    public double pop() throws EmptyStackException;
 }

@@ -58,4 +58,5 @@ public class StackTest {
         assertEquals("Suppression de 11.58", 11.58, pile.pop(), 0.01);
         assertEquals("Il reste 2 elements dans la pile", 2, pile.getSize());
     }
+
 }
